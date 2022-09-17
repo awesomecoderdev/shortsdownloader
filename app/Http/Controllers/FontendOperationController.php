@@ -34,10 +34,6 @@ class FontendOperationController extends Controller
     function sitemap(Request $request)
     {
         $pages = DB::table('shorts')->select(["vid", "updated_at"])->get();
-        // return $pages;
-
-
-        // return response()->view('sitemap', ['pages' => $pages]);
         return response()->view('sitemap', ['pages' => $pages])->header('Content-Type', 'text/xml');
     }
 
