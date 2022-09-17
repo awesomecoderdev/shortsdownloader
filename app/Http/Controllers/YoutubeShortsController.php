@@ -96,6 +96,10 @@ class YoutubeShortsController extends Controller
                     $downloaded = ($downloadedCount) ? ($downloadedCount + 1) : abs(($downloaded * 90) / 100);
                     $short["downloaded"] = ($downloaded != 0) ? $downloaded : 1;
                     ProcessUpdateYoutubeShorts::dispatch($short);
+                    // create short
+                    Short::updateOrCreate([
+                        "vid" => $short["vid"],
+                    ], $short);
                     return $short;
                 }
             } else {
@@ -137,6 +141,9 @@ class YoutubeShortsController extends Controller
                         $outputArr["content_details"] = $shortsArr["contentDetails"];
                         $outputArr["statistics"] = $shortsArr["statistics"];
                         ProcessUpdateYoutubeShorts::dispatch($outputArr);
+                        Short::updateOrCreate([
+                            "vid" => $outputArr["vid"],
+                        ], $outputArr);
                         return $outputArr;
                     }
                 } else {
@@ -261,6 +268,9 @@ class YoutubeShortsController extends Controller
                         $outputArr["content_details"] = $shortsArr["contentDetails"];
                         $outputArr["statistics"] = $shortsArr["statistics"];
                         ProcessUpdateYoutubeShorts::dispatch($outputArr);
+                        // Short::updateOrCreate([
+                        //     "vid" => $outputArr["vid"],
+                        // ], $outputArr);
                         return $outputArr;
                     }
                 } else {
@@ -282,9 +292,11 @@ class YoutubeShortsController extends Controller
             $channel = isset($video->videoDetails->channelId) ? $video->videoDetails->channelId : null;
 
             if ($channel != null) {
-                $short = Short::find($vid);
-                $short->channel = $channel;
-                $short->save();
+                $updateShort = Short::find($vid);
+                if ($updateShort->channel === null) {
+                    $updateShort->channel = $channel;
+                    $updateShort->save();
+                }
             }
         } else {
             $downloads = [];
@@ -343,7 +355,9 @@ class YoutubeShortsController extends Controller
     public function vid($short)
     {
         // $short = preg_replace('/\?.*/', '', $request->short);
-        return basename(strtok($short, '?'));
+        // return basename(strtok($short, '?'));
+        preg_match('#([\/|\?|&]vi?[\/|=]|youtu\.be\/|embed\/)([a-zA-Z0-9_-]+)#', $short, $matches);
+        return is_array($matches) ? end($matches) : basename(strtok($short, '?'));
     }
 
     /**

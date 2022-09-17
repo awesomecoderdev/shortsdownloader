@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Response;
 
 class FontendOperationController extends Controller
 {
@@ -22,6 +24,21 @@ class FontendOperationController extends Controller
             Cache::forever('theme', 'dark');
             return Response::json(["theme" => Cache::get("theme")]);
         }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return \Illuminate\Http\Request
+     */
+    function sitemap(Request $request)
+    {
+        $pages = DB::table('shorts')->select(["vid", "updated_at"])->get();
+        // return $pages;
+
+
+        // return response()->view('sitemap', ['pages' => $pages]);
+        return response()->view('sitemap', ['pages' => $pages])->header('Content-Type', 'text/xml');
     }
 
     /**

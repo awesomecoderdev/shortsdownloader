@@ -7,7 +7,7 @@
     ? ucfirst($short->description)
     : ucfirst($short->title) .
     ' | YT
-    Short Downloader',)
+    Short Downloader')
 @section('url'){{ route('shorts.show', encode($short->vid)) }}@endsection
 @section('image', end($short->thumbnails)->url)
 @section('height', end($short->thumbnails)->height)
@@ -332,8 +332,8 @@
                             <p class="lg:pb-0 flex relative">
                                 <svg class="animate-spin h-5 w-5 " xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                        stroke-width="4"></circle>
+                                    <circle class="opacity-25" cx="12" cy="12" r="10"
+                                        stroke="currentColor" stroke-width="4"></circle>
                                     <path class="opacity-75" fill="currentColor"
                                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
                                     </path>
@@ -418,8 +418,7 @@
                                                                 d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
                                                                 clip-rule="evenodd" />
                                                         </svg>
-                                                        <span
-                                                            class="ml-1">{{ comments($short->statistics) }}</span>
+                                                        <span class="ml-1">{{ comments($short->statistics) }}</span>
                                                     </span>
                                                     @if ($short->downloaded != null && downloaded($short->downloaded))
                                                         <span
@@ -429,8 +428,7 @@
                                                                 <path fill-rule="evenodd"
                                                                     d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm7 5a1 1 0 10-2 0v1.586l-.293-.293a1 1 0 10-1.414 1.414l2 2 .002.002a.997.997 0 001.41 0l.002-.002 2-2a1 1 0 00-1.414-1.414l-.293.293V9z" />
                                                             </svg>
-                                                            <span
-                                                                class="ml-1">{{ downloaded($short->downloaded) }}</span>
+                                                            <span class="ml-1">{{ downloaded($short->downloaded) }}</span>
                                                         </span>
                                                     @endif
                                                 </p>
@@ -626,8 +624,8 @@
                             <p class="lg:pb-0 flex relative" x-show="animate">
                                 <svg class="animate-spin h-5 w-5 " xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                        stroke-width="4">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10"
+                                        stroke="currentColor" stroke-width="4">
                                     </circle>
                                     <path class="opacity-75" fill="currentColor"
                                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
@@ -649,8 +647,8 @@
                             class=" pointer-events-none  flex lg:flex-row justify-center items-center text-gray-500 dark:text-white font-medium md:text-sm text-sm leading-snughover:text-indigo-600 ">
                             <p class="lg:pb-0 flex relative">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="animate-pulse h-5 w-5 text-yellow-500 dark:text-yellow-600 " viewBox="0 0 20 20"
-                                    fill="currentColor">
+                                    class="animate-pulse h-5 w-5 text-yellow-500 dark:text-yellow-600 "
+                                    viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd"
                                         d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
                                         clip-rule="evenodd" />
@@ -687,8 +685,8 @@
                                     <p
                                         class="relative flex md:justify-start md:mt-2 items-center text-gray-500 dark:text-white text-xs">
                                         <span class=" border-primary-500/50 flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-3"
-                                                viewBox="0 0 20 20" fill="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-3" viewBox="0 0 20 20"
+                                                fill="currentColor">
                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                                                 <path fill-rule="evenodd"
                                                     d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
@@ -698,8 +696,8 @@
                                         </span>
                                         <span
                                             class=" border-l border-primary-500/50 pl-1 ml-1 flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-3"
-                                                viewBox="0 0 20 20" fill="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-3" viewBox="0 0 20 20"
+                                                fill="currentColor">
                                                 <path
                                                     d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
                                             </svg>
@@ -707,8 +705,8 @@
                                         </span>
                                         <span
                                             class=" border-l border-primary-500/50 pl-1 ml-1 flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-3"
-                                                viewBox="0 0 20 20" fill="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-3" viewBox="0 0 20 20"
+                                                fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
                                                     clip-rule="evenodd" />

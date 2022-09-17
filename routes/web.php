@@ -30,6 +30,7 @@ Route::any('css', [FontendOperationController::class, "forbidden"]);
 Route::any('img', [FontendOperationController::class, "forbidden"]);
 Route::any('error/403', [FontendOperationController::class, "forbidden"]);
 Route::resource("message", MessageController::class)->only("store");
+Route::any("sitemap.xml", [FontendOperationController::class, "sitemap"])->name("sitemap");
 
 /*
 |--------------------------------------------------------------------------
@@ -46,10 +47,15 @@ Route::group(["prefix" => "", "as" => "page.", "namespace" => "", "middleware" =
     Route::any('advertising', [PagesController::class, "advertising"])->name("advertising");
     Route::any('recent', [PagesController::class, "recent"])->name("recent");
     Route::any('popular', [PagesController::class, "popular"])->name("popular");
-    Route::any('setup', function () {
-        Artisan::call("queue:work");
-        echo "done";
-    });
+    // Route::any('setup', function () {
+    //     // Artisan::call("queue:work");
+    //     // echo "done";
+    //     // $command = 'php-cli ' . base_path() . '/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!'; // 5.6 - see comments
+    //     $command = 'php-cli ' . base_path() . '/artisan queue:work > /dev/null & echo $!'; // 5.6 - see comments
+    //     $pid = exec($command);
+
+    //     echo $pid;
+    // });
 });
 
 /*
